@@ -27,7 +27,7 @@ int timeColour[99][5];
 int coloneT = 0;
 int coloneCounter = 0;
 String color = "";
-
+int set = 0;
 
 
 void setup() {
@@ -46,4 +46,5 @@ void loop() {
   decodeTrameType();
   decodeTrameColor();
   decodeTrameAnimate();
+  decodeTrameSet();
 }
