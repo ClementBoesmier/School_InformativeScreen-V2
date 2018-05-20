@@ -45,5 +45,5 @@ void loop() {
   lectureTrame();
   decodeTrameType();
   decodeTrameColor();
-  decodeTrameAnimate!();
+  decodeTrameAnimate();
 }
