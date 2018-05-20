@@ -53,12 +53,13 @@ void decodeTrameColor() {
         break;
         case 'n':
             Serial.println("none OK");
+            switchCase = switchCase + 14;
     }
 }
 void decodeTrameAnimate() {
     switch (bufferTrame.charAt(switchCase)) {
         case 'n':
-            Serial.println(bufferTrame.charAt(switchCase));
+            Serial.println("none animate");
     }
 
     bufferTrame = "";
