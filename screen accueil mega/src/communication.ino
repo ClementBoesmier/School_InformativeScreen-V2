@@ -49,7 +49,7 @@ void decodeTrameType() {
                 Serial.print("bleu : ");
                 Serial.println(timeColour[i][4]);
             }
-
+            switchCase = switchCase + 21;
         break;
         case 'n':
             Serial.println("none OK");
@@ -57,7 +57,9 @@ void decodeTrameType() {
     bufferTrame = "";
     switchCase = 6 ;
 }
-
+void decodeTrameAnimate() {
+    serial.println(bufferTrame.charAt(switchCase));
+}
 /*    if (bufferTrame.charAt(0) == "n") {
         Serial.println("ok");
 
