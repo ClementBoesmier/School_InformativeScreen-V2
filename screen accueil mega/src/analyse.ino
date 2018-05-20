@@ -15,3 +15,6 @@ void colorSave(){
         Serial.println(timeColour[i][4]);
     }
 }
+void saveTime() {
+    /* code */
+}

@@ -24,7 +24,6 @@ void decodeTrameType() {
     }
 }
 
-
 void decodeTrameColor() {
     int vCleaner = 0;
     switch (bufferTrame.charAt(switchCase)) {
@@ -41,6 +40,7 @@ void decodeTrameColor() {
             switchCase = switchCase + 14;
     }
 }
+
 void decodeTrameAnimate() {
     switch (bufferTrame.charAt(switchCase)) {
         case 'n':
@@ -48,24 +48,36 @@ void decodeTrameAnimate() {
             switchCase = switchCase + 9;
     }
 }
+
 void decodeTrameSet() {
     if (bufferTrame != "") {
         String setString = bufferTrame.substring(switchCase +1 ,switchCase + 3);
         set = setString.toInt();
         Serial.println(set);
+        colorSave();
 
     }
 
 }
+
 void decodeTrameSetInfo (){
+    String info = bufferTrame;
     if (bufferTrame != ""){
-        String info = bufferTrame;
         info.remove(0, switchCase +4);
         info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
         Serial.println(info);
-
         bufferTrame = "";
         switchCase = 6;
+        if (info.indexOf("/") != -1) {
+            String heureP = info.substring(0,2);
+            Serial.println (heureP);
+            String minP = info.substring(3,5);
+            Serial.println(minP);
+        }
+        else{
+
+        }
+
     }
 }
 /*    if (bufferTrame.charAt(0) == "n") {

@@ -48,5 +48,4 @@ void loop() {
   decodeTrameAnimate();
   decodeTrameSet();
   decodeTrameSetInfo();
-  colorSave();
 }
