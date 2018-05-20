@@ -73,6 +73,11 @@ void decodeTrameSet() {
     }
 
 }
+void decodeTrameSetInfo (){
+    if (bufferTrame != ""){
+        
+    }
+}
 /*    if (bufferTrame.charAt(0) == "n") {
         Serial.println("ok");
 
