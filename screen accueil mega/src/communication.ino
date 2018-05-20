@@ -68,14 +68,19 @@ void decodeTrameSet() {
         String setString = bufferTrame.substring(switchCase +1 ,switchCase + 3);
         set = setString.toInt();
         Serial.println(set);
-        bufferTrame = "";
-        switchCase = 6;
+
     }
 
 }
 void decodeTrameSetInfo (){
     if (bufferTrame != ""){
-        
+        String info = bufferTrame;
+        info.remove(0, switchCase +4);
+        info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
+        Serial.println(info);
+
+        bufferTrame = "";
+        switchCase = 6;
     }
 }
 /*    if (bufferTrame.charAt(0) == "n") {
