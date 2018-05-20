@@ -1,0 +1,88 @@
+void lectureTrame() {
+    if (Serial.available()) { // If a message is receive on the serial
+        bufferTrame = Serial.readString(); // Read it and affect it to bufferTrame String object
+        Serial.println(bufferTrame); // When this is finished display it on the serial monitor
+    }
+}
+
+void decodeTrame01() {
+    switch (bufferTrame.charAt(switchCase)) {
+        case 'n':
+            Serial.println("now OK");
+            switchCase = 17 ;
+            coloneT = 0;
+        break;
+        case 'c':
+            Serial.println("customText OK");
+            switchCase = 24;
+        break;
+        case 's':
+            Serial.println("schedule OK");
+            switchCase = 22;
+            coloneCounter++;
+            coloneT = coloneCounter;
+    }
+}
+
+
+void decodeTrame02() {
+    int vCleaner = 0;
+    switch (bufferTrame.charAt(switchCase)) {
+        case 'd':
+            color = bufferTrame.substring(switchCase + 5,switchCase + 10);
+            for (size_t i = 0; i < 2; i++) {
+                vCleaner = color.indexOf(",");
+                color.remove(vCleaner,1);
+            }
+            Serial.println(color);
+            for (size_t i = 0; i < 3; i++) {
+                timeColour[coloneT][i+2] = color.charAt(i)-48;
+                Serial.println(color.charAt(i));
+            }
+            for (size_t i = 0; i <= coloneT; i++) {
+                Serial.print("case : ");
+                Serial.println(i);
+                Serial.print("rouge : ");
+                Serial.println(timeColour[i][2]);
+                Serial.print("vert : ");
+                Serial.println(timeColour[i][3]);
+                Serial.print("bleu : ");
+                Serial.println(timeColour[i][4]);
+            }
+
+        break;
+        case 'n':
+            Serial.println("none OK");
+    }
+    bufferTrame = "";
+    switchCase = 6 ;
+}
+
+/*    if (bufferTrame.charAt(0) == "n") {
+        Serial.println("ok");
+
+        bufferTrame = "";
+    }
+    else{
+        //Serial.println("non");
+        //delay(100);
+    }
+}
+/*
+
+Lire le caractère 7
+    si c'est un s = schedule
+    si c'est un n = now / currently
+    si c'est un c = customText
+        {Lire le caractère 30
+            Valeur de 0 à 7 rouge
+        Lire le caractère 32
+            Valeur de 0 à 7 verte
+        Lire le caractère 34
+            Valeur de 0 à 7 bleu}
+        Lire le caractère 46
+
+    si c'est un i = initialisation
+        Lire le caractère 54
+            etalonner l'heure
+*/
