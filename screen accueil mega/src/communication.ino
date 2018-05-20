@@ -5,7 +5,7 @@ void lectureTrame() {
     }
 }
 
-void decodeTrame01() {
+void decodeTrameType() {
     switch (bufferTrame.charAt(switchCase)) {
         case 'n':
             Serial.println("now OK");
@@ -25,7 +25,7 @@ void decodeTrame01() {
 }
 
 
-void decodeTrame02() {
+void decodeTrameType() {
     int vCleaner = 0;
     switch (bufferTrame.charAt(switchCase)) {
         case 'd':

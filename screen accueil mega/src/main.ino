@@ -44,6 +44,6 @@ void loop() {
   rtc.get(&sec, &min, &hour, &day, &month, &year);
   RTCprint();
   lectureTrame();
-  decodeTrame01();
-  decodeTrame02();
+  decodeTrameType();
+  decodeTrameColor();
 }
