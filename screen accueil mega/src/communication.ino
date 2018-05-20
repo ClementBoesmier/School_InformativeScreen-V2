@@ -25,7 +25,7 @@ void decodeTrameType() {
 }
 
 
-void decodeTrameType() {
+void decodeTrameColor() {
     int vCleaner = 0;
     switch (bufferTrame.charAt(switchCase)) {
         case 'd':
@@ -58,7 +58,7 @@ void decodeTrameType() {
     switchCase = 6 ;
 }
 void decodeTrameAnimate() {
-    serial.println(bufferTrame.charAt(switchCase));
+    Serial.println(bufferTrame.charAt(switchCase));
 }
 /*    if (bufferTrame.charAt(0) == "n") {
         Serial.println("ok");

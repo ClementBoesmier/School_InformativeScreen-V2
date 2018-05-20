@@ -30,7 +30,6 @@ String color = "";
 
 
 
-
 void setup() {
   Serial.begin(9600);
   rtc.start();
