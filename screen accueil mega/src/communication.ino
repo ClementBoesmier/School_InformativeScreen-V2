@@ -60,10 +60,16 @@ void decodeTrameAnimate() {
     switch (bufferTrame.charAt(switchCase)) {
         case 'n':
             Serial.println("none animate");
+            switchCase = switchCase + 9;
     }
 
     bufferTrame = "";
     switchCase = 6 ;
+}
+void decodeTrameSet() {
+    switch (bufferTrame.charAt(switchCase)) {
+        case /* value */:
+    }
 }
 /*    if (bufferTrame.charAt(0) == "n") {
         Serial.println("ok");
