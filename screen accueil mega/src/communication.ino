@@ -54,11 +54,15 @@ void decodeTrameSet() {
         String setString = bufferTrame.substring(switchCase +1 ,switchCase + 3);
         set = setString.toInt();
         Serial.println(set);
+<<<<<<< HEAD
         colorSave();
+=======
+>>>>>>> a21a2488f2b9864943ce24d332e6079a53f110fa
 
     }
 
 }
+<<<<<<< HEAD
 
 void decodeTrameSetInfo (){
     String info = bufferTrame;
@@ -78,6 +82,17 @@ void decodeTrameSetInfo (){
 
         }
 
+=======
+void decodeTrameSetInfo (){
+    if (bufferTrame != ""){
+        String info = bufferTrame;
+        info.remove(0, switchCase +4);
+        info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
+        Serial.println(info);
+
+        bufferTrame = "";
+        switchCase = 6;
+>>>>>>> a21a2488f2b9864943ce24d332e6079a53f110fa
     }
 }
 /*    if (bufferTrame.charAt(0) == "n") {
