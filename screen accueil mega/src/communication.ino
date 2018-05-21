@@ -35,6 +35,7 @@ void decodeTrameColor() {
         case 'n':
             Serial.println("none OK");
             switchCase = switchCase + 14;
+            color = "000";
     }
 }
 

@@ -5,11 +5,11 @@ void colorSave(){
         Serial.println(color.charAt(i));
     }
 }
+
 void saveTime() {
     for (size_t i = 0; i < 2; i++) {
       timeColour[set][i] = saveTimeT[i];
     }
-
 
     for (size_t i = 0; i <= set; i++) {
         Serial.print("Set : ");
