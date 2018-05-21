@@ -24,7 +24,6 @@ void decodeTrameType() {
     }
 }
 
-
 void decodeTrameColor() {
     int vCleaner = 0;
     switch (bufferTrame.charAt(switchCase)) {
@@ -34,21 +33,6 @@ void decodeTrameColor() {
                 vCleaner = color.indexOf(",");
                 color.remove(vCleaner,1);
             }
-            Serial.println(color);
-            for (size_t i = 0; i < 3; i++) {
-                timeColour[coloneT][i+2] = color.charAt(i)-48;
-                Serial.println(color.charAt(i));
-            }
-            for (size_t i = 0; i <= coloneT; i++) {
-                Serial.print("case : ");
-                Serial.println(i);
-                Serial.print("rouge : ");
-                Serial.println(timeColour[i][2]);
-                Serial.print("vert : ");
-                Serial.println(timeColour[i][3]);
-                Serial.print("bleu : ");
-                Serial.println(timeColour[i][4]);
-            }
             switchCase = switchCase + 21;
         break;
         case 'n':
@@ -56,6 +40,7 @@ void decodeTrameColor() {
             switchCase = switchCase + 14;
     }
 }
+
 void decodeTrameAnimate() {
     switch (bufferTrame.charAt(switchCase)) {
         case 'n':
@@ -63,15 +48,37 @@ void decodeTrameAnimate() {
             switchCase = switchCase + 9;
     }
 }
+
 void decodeTrameSet() {
     if (bufferTrame != "") {
         String setString = bufferTrame.substring(switchCase +1 ,switchCase + 3);
         set = setString.toInt();
         Serial.println(set);
-        bufferTrame = "";
-        switchCase = 6;
+        colorSave();
+
     }
 
+}
+
+void decodeTrameSetInfo (){
+    String info = bufferTrame;
+    if (bufferTrame != ""){
+        info.remove(0, switchCase +4);
+        info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
+        Serial.println(info);
+        bufferTrame = "";
+        switchCase = 6;
+        if (info.indexOf("/") != -1) {
+            String heureP = info.substring(0,2);
+            Serial.println (heureP);
+            String minP = info.substring(3,5);
+            Serial.println(minP);
+        }
+        else{
+
+        }
+
+    }
 }
 /*    if (bufferTrame.charAt(0) == "n") {
         Serial.println("ok");
