@@ -31,3 +31,8 @@ void saveTime() {
         Serial.println(timeColour[i][4]);
     }
 }
+void rtcsync(){
+  if (type == 1 && info.indexOf("h") != -1) {
+    Serial.print("chage rtc pour :");
+  }
+}
