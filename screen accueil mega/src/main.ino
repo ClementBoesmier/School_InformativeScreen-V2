@@ -29,6 +29,7 @@ int set = 0;
 int saveTimeT[1];
 String info = "";
 int type = 0;
+int action = 0;
 
 
 void setup() {
@@ -49,7 +50,6 @@ void loop() {
   decodeTrameAnimate();
   decodeTrameSet();
   decodeTrameSetInfo();
-  rtcsync();
 
   bufferTrame = "";
   switchCase = 6;

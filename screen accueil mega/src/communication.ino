@@ -8,17 +8,18 @@ void lectureTrame() {
 void decodeTrameType() {
     switch (bufferTrame.charAt(switchCase)) {
         case 'n':
-            Serial.println("now OK");
+            //Serial.println("now OK");
             switchCase = 17 ;
             type = 1;
         break;
         case 'c':
-            Serial.println("customText OK");
+            //Serial.println("customText OK");
             switchCase = 24;
         break;
         case 's':
-            Serial.println("schedule OK");
+            //Serial.println("schedule OK");
             switchCase = 22;
+            type = 2;
     }
 }
 
@@ -43,7 +44,7 @@ void decodeTrameColor() {
 void decodeTrameAnimate() {
     switch (bufferTrame.charAt(switchCase)) {
         case 'n':
-            Serial.println("none animate");
+            //Serial.println("none animate");
             switchCase = switchCase + 9;
     }
 }
@@ -65,15 +66,36 @@ void decodeTrameSetInfo (){
         info.remove(0, switchCase +4);
         info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
         Serial.println(info);
-        if ((info.indexOf("/") != -1 || info == ("suppr"))|| (type = 1 && info.indexOf("h") != -1)) {
+        if ((info.indexOf("/") != -1 || info == ("suppr"))|| (type == 1 && info.indexOf("h") != -1)) {
             String heureP = info.substring(0,2);
-            Serial.println (heureP);
+            //Serial.println (heureP);
             String minP = info.substring(3,5);
-            Serial.println(minP);
+            //Serial.println(minP);
             saveTimeT[0]=heureP.toInt();
             saveTimeT[1]=minP.toInt();
-            saveTime();
+            Serial.println(saveTimeT[0]);
+            Serial.println(saveTimeT[1]);
+            Serial.print(" TYPE :");
+            Serial.println(type);
+            if (type == 2){
+                saveTime();
+            }
             rtcsync();
         }
+        if(info.indexOf("/") != -1){
+            info.remove(0,info.indexOf("/")+1);
+            Serial.println(info);
+        }
+        if (info.equals("OFF")) {
+            action = 0;
+            Serial.println("action OFF ok");
+        } else if (info == "OPEN") {
+            action = 1;
+            Serial.println("action OPEN ok");
+        } else if (info == "CLOSED"){
+            action = 2;
+            Serial.println("action CLOSED ok");
+        }
+        saveAction();
     }
 }
