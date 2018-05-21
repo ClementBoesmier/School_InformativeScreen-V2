@@ -49,6 +49,7 @@ void loop() {
   decodeTrameAnimate();
   decodeTrameSet();
   decodeTrameSetInfo();
+  rtcsync();
 
   bufferTrame = "";
   switchCase = 6;

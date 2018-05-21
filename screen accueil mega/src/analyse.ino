@@ -7,13 +7,15 @@ void colorSave(){
 }
 
 void saveTime() {
-    for (size_t i = 0; i < 2; i++) {
-      timeColour[set][i] = saveTimeT[i];
-    }
+    if (type == 2) {
+        for (size_t i = 0; i < 2; i++) {
+            timeColour[set][i] = saveTimeT[i];
+        }
 
-    if (info.equals("suppr") && set != 0) {
-      timeColour[set][0] = 25;
-      timeColour[set][1] = 61;
+        if (info.equals("suppr") && set != 0) {
+            timeColour[set][0] = 25;
+            timeColour[set][1] = 61;
+        }
     }
 
     for (size_t i = 0; i <= set; i++) {
@@ -33,6 +35,8 @@ void saveTime() {
 }
 void rtcsync(){
   if (type == 1 && info.indexOf("h") != -1) {
-    Serial.print("chage rtc pour :");
+    Serial.print("change rtc pour : ");
+    Serial.print(info);
+    rtc.set(&sec, saveTimeT[0], saveTimeT[1], &day, &month, &year);
   }
 }

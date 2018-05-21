@@ -65,7 +65,7 @@ void decodeTrameSetInfo (){
         info.remove(0, switchCase +4);
         info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
         Serial.println(info);
-        if (info.indexOf("/") != -1 || info == ("suppr")) {
+        if ((info.indexOf("/") != -1 || info == ("suppr"))|| (type = 1 && info.indexOf("h") != -1)) {
             String heureP = info.substring(0,2);
             Serial.println (heureP);
             String minP = info.substring(3,5);
@@ -73,6 +73,7 @@ void decodeTrameSetInfo (){
             saveTimeT[0]=heureP.toInt();
             saveTimeT[1]=minP.toInt();
             saveTime();
+            rtcsync();
         }
     }
 }
