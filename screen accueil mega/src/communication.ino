@@ -10,7 +10,6 @@ void decodeTrameType() {
         case 'n':
             Serial.println("now OK");
             switchCase = 17 ;
-            coloneT = 0;
         break;
         case 'c':
             Serial.println("customText OK");
@@ -19,8 +18,6 @@ void decodeTrameType() {
         case 's':
             Serial.println("schedule OK");
             switchCase = 22;
-            coloneCounter++;
-            coloneT = coloneCounter;
     }
 }
 
@@ -38,6 +35,7 @@ void decodeTrameColor() {
         case 'n':
             Serial.println("none OK");
             switchCase = switchCase + 14;
+            color = "000";
     }
 }
 
@@ -55,13 +53,18 @@ void decodeTrameSet() {
         set = setString.toInt();
         Serial.println(set);
 <<<<<<< HEAD
+<<<<<<< HEAD
         colorSave();
 =======
 >>>>>>> a21a2488f2b9864943ce24d332e6079a53f110fa
+=======
+        colorSave();
+>>>>>>> redesign_Tabl_Color_&_save
 
     }
 
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 void decodeTrameSetInfo (){
@@ -83,16 +86,34 @@ void decodeTrameSetInfo (){
         }
 
 =======
+=======
+
+>>>>>>> redesign_Tabl_Color_&_save
 void decodeTrameSetInfo (){
+    String info = bufferTrame;
     if (bufferTrame != ""){
-        String info = bufferTrame;
         info.remove(0, switchCase +4);
         info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
         Serial.println(info);
+        if (info.indexOf("/") != -1) {
+            String heureP = info.substring(0,2);
+            Serial.println (heureP);
+            String minP = info.substring(3,5);
+            Serial.println(minP);
+            saveTimeT[0]=heureP.toInt();
+            saveTimeT[1]=minP.toInt();
+            saveTime();
+        }
+        else{
 
+        }
+
+<<<<<<< HEAD
         bufferTrame = "";
         switchCase = 6;
 >>>>>>> a21a2488f2b9864943ce24d332e6079a53f110fa
+=======
+>>>>>>> redesign_Tabl_Color_&_save
     }
 }
 /*    if (bufferTrame.charAt(0) == "n") {
