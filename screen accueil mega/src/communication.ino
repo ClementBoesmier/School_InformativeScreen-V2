@@ -17,10 +17,11 @@ void decodeTrameType() {
             switchCase = 24;
         break;
         case 's':
-            //Serial.println("schedule OK");
+            Serial.println("schedule OK");
             switchCase = 22;
-            type = 2;
+            TrameType = 2;
     }
+
 }
 
 void decodeTrameColor() {
@@ -61,23 +62,30 @@ void decodeTrameSet() {
 }
 
 void decodeTrameSetInfo (){
+if (bufferTrame != "") {
+    Serial.println("");
+    Serial.println(TrameType);
+}
+
     info = bufferTrame;
     if (bufferTrame != ""){
         info.remove(0, switchCase +4);
         info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
         Serial.println(info);
-        if ((info.indexOf("/") != -1 || info == ("suppr"))|| (type == 1 && info.indexOf("h") != -1)) {
+        if ((info.indexOf("/") != -1 || info == ("suppr"))|| (TrameType == 1 && info.indexOf("h") != -1)) {
             String heureP = info.substring(0,2);
             //Serial.println (heureP);
             String minP = info.substring(3,5);
             //Serial.println(minP);
             saveTimeT[0]=heureP.toInt();
             saveTimeT[1]=minP.toInt();
+            Serial.println("");
+            Serial.println(TrameType);
             Serial.println(saveTimeT[0]);
             Serial.println(saveTimeT[1]);
             Serial.print(" TYPE :");
-            Serial.println(type);
-            if (type == 2){
+            Serial.println(TrameType);
+            if (TrameType == 2){
                 saveTime();
             }
             rtcsync();
