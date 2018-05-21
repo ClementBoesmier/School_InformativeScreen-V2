@@ -10,7 +10,6 @@ void decodeTrameType() {
         case 'n':
             Serial.println("now OK");
             switchCase = 17 ;
-            coloneT = 0;
         break;
         case 'c':
             Serial.println("customText OK");
@@ -19,8 +18,6 @@ void decodeTrameType() {
         case 's':
             Serial.println("schedule OK");
             switchCase = 22;
-            coloneCounter++;
-            coloneT = coloneCounter;
     }
 }
 
@@ -73,6 +70,8 @@ void decodeTrameSetInfo (){
             Serial.println (heureP);
             String minP = info.substring(3,5);
             Serial.println(minP);
+            saveTimeT[0]=heureP.toInt();
+            saveTimeT[1]=minP.toInt();
         }
         else{
 
