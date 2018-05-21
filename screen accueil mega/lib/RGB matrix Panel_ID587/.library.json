@@ -1,0 +1,46 @@
+{
+    "description": "Arduino library and example code for the 16x32 RGB matrix panels in the shop", 
+    "repository": {
+        "url": "https://github.com/adafruit/RGB-matrix-Panel", 
+        "type": "git"
+    }, 
+    "platforms": [
+        "atmelavr", 
+        "atmelsam", 
+        "espressif8266", 
+        "intel_arc32", 
+        "microchippic32", 
+        "nordicnrf51", 
+        "teensy", 
+        "timsp430"
+    ], 
+    "export": {
+        "exclude": [
+            "extras", 
+            "docs", 
+            "tests", 
+            "test", 
+            "*.doxyfile", 
+            "*.pdf"
+        ], 
+        "include": null
+    }, 
+    "authors": [
+        {
+            "maintainer": true, 
+            "name": "Adafruit", 
+            "url": null, 
+            "email": "info@adafruit.com"
+        }
+    ], 
+    "keywords": [
+        "display"
+    ], 
+    "id": 587, 
+    "name": "RGB matrix Panel", 
+    "frameworks": [
+        "arduino"
+    ], 
+    "version": "1.0.2", 
+    "homepage": null
+}
