@@ -57,31 +57,14 @@ void decodeTrameSet() {
     }
 
 }
+
 void decodeTrameSetInfo (){
-    String info = bufferTrame;
+    info = bufferTrame;
     if (bufferTrame != ""){
         info.remove(0, switchCase +4);
         info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
         Serial.println(info);
-        bufferTrame = "";
-        switchCase = 6;
-        if (info.indexOf("/") != -1) {
-            String heureP = info.substring(0,2);
-            Serial.println (heureP);
-            String minP = info.substring(3,5);
-            Serial.println(minP);
-        }
-        else{
-
-        }
-
-void decodeTrameSetInfo(){
-    String info = bufferTrame;
-    if (bufferTrame != ""){
-        info.remove(0, switchCase +4);
-        info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
-        Serial.println(info);
-        if (info.indexOf("/") != -1) {
+        if (info.indexOf("/") != -1 || info == ("suppr")) {
             String heureP = info.substring(0,2);
             Serial.println (heureP);
             String minP = info.substring(3,5);
@@ -90,37 +73,5 @@ void decodeTrameSetInfo(){
             saveTimeT[1]=minP.toInt();
             saveTime();
         }
-        else{
-
-        }
-
     }
 }
-/*    if (bufferTrame.charAt(0) == "n") {
-        Serial.println("ok");
-
-        bufferTrame = "";
-    }
-    else{
-        //Serial.println("non");
-        //delay(100);
-    }
-}
-/*
-
-Lire le caractère 7
-    si c'est un s = schedule
-    si c'est un n = now / currently
-    si c'est un c = customText
-        {Lire le caractère 30
-            Valeur de 0 à 7 rouge
-        Lire le caractère 32
-            Valeur de 0 à 7 verte
-        Lire le caractère 34
-            Valeur de 0 à 7 bleu}
-        Lire le caractère 46
-
-    si c'est un i = initialisation
-        Lire le caractère 54
-            etalonner l'heure
-*/

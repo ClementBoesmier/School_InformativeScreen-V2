@@ -27,6 +27,7 @@ int timeColour[99][5];
 String color = "";
 int set = 0;
 int saveTimeT[1];
+String info = "";
 
 
 void setup() {

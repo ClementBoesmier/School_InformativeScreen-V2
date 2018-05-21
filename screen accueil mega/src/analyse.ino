@@ -11,6 +11,11 @@ void saveTime() {
       timeColour[set][i] = saveTimeT[i];
     }
 
+    if (info.equals("suppr") && set != 0) {
+      timeColour[set][0] = 25;
+      timeColour[set][1] = 61;
+    }
+
     for (size_t i = 0; i <= set; i++) {
         Serial.print("Set : ");
         Serial.println(i);
@@ -25,6 +30,4 @@ void saveTime() {
         Serial.print("B : ");
         Serial.println(timeColour[i][4]);
     }
-
-
 }
