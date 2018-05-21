@@ -7,7 +7,7 @@ void colorSave(){
 }
 void saveTime() {
     for (size_t i = 0; i < 2; i++) {
-      timeColour[set][i] = saveTimeT[i]
+      timeColour[set][i] = saveTimeT[i];
     }
 
 
@@ -16,8 +16,8 @@ void saveTime() {
         Serial.println(i);
         Serial.print("time : ");
         Serial.print(timeColour[i][0]);
-        Serial.print(" h ")
-        Serial.println(timeColour[i][1])
+        Serial.print(" h ");
+        Serial.println(timeColour[i][1]);
         Serial.print("R : ");
         Serial.println(timeColour[i][2]);
         Serial.print("V : ");

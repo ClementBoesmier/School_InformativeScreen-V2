@@ -63,8 +63,6 @@ void decodeTrameSetInfo (){
         info.remove(0, switchCase +4);
         info = info.substring(info.indexOf("[")+1,info.indexOf("]"));
         Serial.println(info);
-        bufferTrame = "";
-        switchCase = 6;
         if (info.indexOf("/") != -1) {
             String heureP = info.substring(0,2);
             Serial.println (heureP);
@@ -72,6 +70,7 @@ void decodeTrameSetInfo (){
             Serial.println(minP);
             saveTimeT[0]=heureP.toInt();
             saveTimeT[1]=minP.toInt();
+            saveTime();
         }
         else{
 

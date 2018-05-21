@@ -26,7 +26,7 @@ int switchCase = 6;
 int timeColour[99][5];
 String color = "";
 int set = 0;
-int saveTimeT[1]; 
+int saveTimeT[1];
 
 
 void setup() {
@@ -47,4 +47,7 @@ void loop() {
   decodeTrameAnimate();
   decodeTrameSet();
   decodeTrameSetInfo();
+
+  bufferTrame = "";
+  switchCase = 6;
 }
