@@ -31,7 +31,7 @@ String info = "";
 int TrameType = 0;
 int action = 0;
 int type = 0;
-
+int theure = 0;
 
 void setup() {
   Serial.begin(9600);
