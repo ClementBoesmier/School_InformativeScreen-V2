@@ -6,6 +6,7 @@
 
 #include <Adafruit_GFX.h>   // Core graphics library
 #include <RGBmatrixPanel.h> // Hardware-specific library
+#include <SPI.h>
 
 #define OE   9
 #define LAT 10

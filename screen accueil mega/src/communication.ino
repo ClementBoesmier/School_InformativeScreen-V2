@@ -1,6 +1,6 @@
 void lectureTrame() {
-    if (Serial.available()) { // If a message is receive on the serial
-        bufferTrame = Serial.readString(); // Read it and affect it to bufferTrame String object
+    if (Serial3.available()) { // If a message is receive on the serial
+        bufferTrame = Serial3.readString(); // Read it and affect it to bufferTrame String object
         Serial.println(bufferTrame); // When this is finished display it on the serial monitor
     }
 }
@@ -11,6 +11,7 @@ void decodeTrameType() {
             //Serial.println("now OK");
             switchCase = 17 ;
             type = 1;
+            actu = 1;
         break;
         case 'c':
             //Serial.println("customText OK");
@@ -39,6 +40,11 @@ void decodeTrameColor() {
             Serial.println("none OK");
             switchCase = switchCase + 14;
             color = "000";
+            if (TrameType == 0){
+              timeSet = 1;
+            }else{
+              timeSet = 0;
+            }
     }
 }
 
@@ -54,6 +60,9 @@ void decodeTrameSet() {
     if (bufferTrame != "") {
         String setString = bufferTrame.substring(switchCase +1 ,switchCase + 3);
         set = setString.toInt();
+        if (set > Gset) {
+          Gset = set;
+        }
         Serial.println(set);
         colorSave();
 
