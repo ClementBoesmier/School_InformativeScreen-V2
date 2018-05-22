@@ -39,9 +39,9 @@ void saveAction() {
 }
 
 void rtcsync(){
-  if (type == 1 && info.indexOf("h") != -1) {
+  if (type == 0 && info.indexOf("h") != -1) {
     Serial.print("change rtc pour : ");
     Serial.print(info);
-    rtc.set(&sec, saveTimeT[0], saveTimeT[1], &day, &month, &year);
+    rtc.set(&sec, saveTimeT[1], saveTimeT[0], &day, &month, &year);
   }
 }
