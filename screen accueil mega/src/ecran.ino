@@ -17,6 +17,8 @@ void findScheduleT() {
 
 void afficheSchedule(){
   if (actu == 1 && (timeS =! 0 || type ==0)) {
+    Serial.print(actu);
+    matrix.fillScreen(matrix.Color333(0,0,0));
     matrix.setTextSize(1);
     matrix.setCursor(2, 0);
     switch (timeColour[scheduleOK][5]) {
@@ -31,7 +33,7 @@ void afficheSchedule(){
         matrix.setTextColor(matrix.Color333(timeColour[scheduleOK][2],timeColour[scheduleOK][3],timeColour[scheduleOK][4]));
         matrix.print("Accueil Fermee");
     }
-    actu == 0;
+    actu = 0;
   }
   if (timeColour[scheduleOK][5] != 0) {
     RTCprint();
@@ -45,6 +47,7 @@ void RTCprint() {
         minEx = min;
         matrix.fillRect(36, 23, 63, 32, matrix.Color333(0, 0, 0));
     }
+    matrix.setTextColor(matrix.Color333(7,7,7));
     matrix.setTextSize(1);
     matrix.setCursor(37, 24);
     if (hour <= 9) {
