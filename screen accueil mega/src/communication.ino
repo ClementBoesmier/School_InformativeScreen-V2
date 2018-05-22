@@ -40,6 +40,11 @@ void decodeTrameColor() {
             Serial.println("none OK");
             switchCase = switchCase + 14;
             color = "000";
+            if (TrameType == 0){
+              timeSet = 1;
+            }else{
+              timeSet = 0;
+            }
     }
 }
 

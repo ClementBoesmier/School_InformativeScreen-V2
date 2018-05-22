@@ -37,6 +37,8 @@ int timeS = 0;
 int actu = 0;
 int scheduleOK = 0;
 
+int timeSet = 0;
+
 void setup() {
   Serial.begin(9600);
   Serial3.begin(9600);
