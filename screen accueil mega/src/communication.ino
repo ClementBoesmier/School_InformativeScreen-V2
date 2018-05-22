@@ -11,6 +11,7 @@ void decodeTrameType() {
             //Serial.println("now OK");
             switchCase = 17 ;
             type = 1;
+            actu = 1;
         break;
         case 'c':
             //Serial.println("customText OK");
@@ -54,6 +55,9 @@ void decodeTrameSet() {
     if (bufferTrame != "") {
         String setString = bufferTrame.substring(switchCase +1 ,switchCase + 3);
         set = setString.toInt();
+        if (set > Gset) {
+          Gset = set;
+        }
         Serial.println(set);
         colorSave();
 

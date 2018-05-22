@@ -31,8 +31,11 @@ String info = "";
 int TrameType = 0;
 int action = 0;
 int type = 0;
+int Gset = 0;
 
-int Theure = 0;
+int timeS = 0;
+int actu = 0;
+int scheduleOK = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -45,15 +48,14 @@ void setup() {
 
 void loop() {
   rtc.get(&sec, &min, &hour, &day, &month, &year);
-  RTCprint();
   lectureTrame();
   decodeTrameType();
   decodeTrameColor();
   decodeTrameAnimate();
   decodeTrameSet();
   decodeTrameSetInfo();
+  findScheduleT();
   afficheSchedule();
-
 
   bufferTrame = "";
   switchCase = 6;
