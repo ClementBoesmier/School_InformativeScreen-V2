@@ -39,6 +39,7 @@ int scheduleOK = 0;
 
 void setup() {
   Serial.begin(9600);
+  Serial3.begin(9600);
   rtc.start();
   matrix.begin();
   rtc.get(&sec, &min, &hour, &day, &month, &year);

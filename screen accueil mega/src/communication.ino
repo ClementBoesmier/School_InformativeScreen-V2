@@ -1,6 +1,6 @@
 void lectureTrame() {
-    if (Serial.available()) { // If a message is receive on the serial
-        bufferTrame = Serial.readString(); // Read it and affect it to bufferTrame String object
+    if (Serial3.available()) { // If a message is receive on the serial
+        bufferTrame = Serial3.readString(); // Read it and affect it to bufferTrame String object
         Serial.println(bufferTrame); // When this is finished display it on the serial monitor
     }
 }
