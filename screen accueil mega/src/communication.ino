@@ -11,7 +11,6 @@ void decodeTrameType() {
             //Serial.println("now OK");
             switchCase = 17 ;
             type = 1;
-            actu = 1;
         break;
         case 'c':
             //Serial.println("customText OK");

@@ -20,7 +20,7 @@ void findScheduleT() {
 }
 
 void afficheSchedule(){
-  if (actu == 1 || bufferTrame != "" )) {
+  if (bufferTrame != ""){
     Serial.print(actu);
     matrix.fillScreen(matrix.Color333(0,0,0));
     matrix.setTextSize(1);
