@@ -10,7 +10,7 @@ void decodeTrameType() {
         case 'n':
             //Serial.println("now OK");
             switchCase = 17 ;
-            type = 1;
+            TrameType = 1;
         break;
         case 'c':
             //Serial.println("customText OK");
@@ -96,7 +96,6 @@ if (bufferTrame != "") {
             if (TrameType == 2){
                 saveTime();
             }
-            rtcsync();
         }
         if(info.indexOf("/") != -1){
             info.remove(0,info.indexOf("/")+1);

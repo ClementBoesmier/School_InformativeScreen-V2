@@ -3,11 +3,15 @@ void findScheduleT() {
         if(timeColour[i][0] == hour){
             if (timeColour[i][1] == min) {
               scheduleOK = i;
+              int LastscheduleOK = 0;
               timeS = 1;
-              if(bufferTrame != ""){
+              if(LastscheduleOK != scheduleOK){
                 actu = 1;
+                LastscheduleOK = LastscheduleOK;
               }
             }
+        }else{
+          scheduleOK = 0;
         }
         if (bufferTrame != "") {
           Serial.print("Time schedule OK :");
@@ -15,13 +19,13 @@ void findScheduleT() {
         }
 
         }
-  if (type == 0) {
+  if (TrameType == 0) {
     scheduleOK = 0;
   }
 }
 
 void afficheSchedule(){
-  if (actu == 1 || bufferTrame != "") {
+  if (actu == 1 || (bufferTrame != "" && timeSet == 0)) {
     Serial.print(actu);
     matrix.fillScreen(matrix.Color333(0,0,0));
     matrix.setTextSize(1);
