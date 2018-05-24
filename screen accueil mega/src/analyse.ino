@@ -1,11 +1,12 @@
 void colorSave(){
+  if (timeSet == 0) {
     Serial.println(color);
     for (size_t i = 0; i < 3; i++) {
         timeColour[set][i+2] = color.charAt(i)-48;
         Serial.println(color.charAt(i));
     }
 }
-
+}
 void saveTime() {
         for (int i = 0; i < 2; i++) {
             timeColour[set][i] = saveTimeT[i];
@@ -39,7 +40,7 @@ void saveAction() {
 }
 
 void rtcsync(){
-  if (type == 0 && info.indexOf("h") != -1) {
+  if (timeSet == 1) {
     Serial.print("change rtc pour : ");
     Serial.print(info);
     rtc.set(&sec, saveTimeT[1], saveTimeT[0], &day, &month, &year);

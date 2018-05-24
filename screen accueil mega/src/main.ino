@@ -30,7 +30,6 @@ int saveTimeT[2] = {0, 0};
 String info = "";
 int TrameType = 0;
 int action = 0;
-int type = 0;
 int Gset = 0;
 
 int timeS = 0;
@@ -59,6 +58,7 @@ void loop() {
   decodeTrameSetInfo();
   findScheduleT();
   afficheSchedule();
+  rtcsync();
 
   bufferTrame = "";
   switchCase = 6;

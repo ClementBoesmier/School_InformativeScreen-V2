@@ -10,7 +10,7 @@ void decodeTrameType() {
         case 'n':
             //Serial.println("now OK");
             switchCase = 17 ;
-            type = 1;
+            TrameType = 1;
         break;
         case 'c':
             //Serial.println("customText OK");
@@ -34,16 +34,15 @@ void decodeTrameColor() {
                 color.remove(vCleaner,1);
             }
             switchCase = switchCase + 21;
+            timeSet = 0;
         break;
         case 'n':
             Serial.println("none OK");
             switchCase = switchCase + 14;
             color = "000";
-            if (TrameType == 0){
+            if (TrameType == 1){
               timeSet = 1;
-            }else{
-              timeSet = 0;
-            }
+          }
     }
 }
 
@@ -82,9 +81,7 @@ if (bufferTrame != "") {
         Serial.println(info);
         if ((info.indexOf("/") != -1 || info == ("suppr"))|| (TrameType == 1 && info.indexOf("h") != -1)) {
             String heureP = info.substring(0,2);
-            //Serial.println (heureP);
             String minP = info.substring(3,5);
-            //Serial.println(minP);
             saveTimeT[0]=heureP.toInt();
             saveTimeT[1]=minP.toInt();
             Serial.println("");
@@ -96,7 +93,6 @@ if (bufferTrame != "") {
             if (TrameType == 2){
                 saveTime();
             }
-            rtcsync();
         }
         if(info.indexOf("/") != -1){
             info.remove(0,info.indexOf("/")+1);
