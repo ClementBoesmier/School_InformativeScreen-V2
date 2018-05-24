@@ -40,7 +40,11 @@ void saveAction() {
 }
 
 void rtcsync(){
+<<<<<<< HEAD
   if (timeSet == 1) {
+=======
+  if (TrameType == 0 && info.indexOf("h") != -1) {
+>>>>>>> 69bd5c82329d232d5c8c0bd4e7fca813087f324d
     Serial.print("change rtc pour : ");
     Serial.print(info);
     rtc.set(&sec, saveTimeT[1], saveTimeT[0], &day, &month, &year);
