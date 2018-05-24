@@ -38,6 +38,10 @@ int scheduleOK = 0;
 
 int timeSet = 0;
 
+int LastscheduleOK = 0;
+
+int actuTime = 0;
+
 void setup() {
   Serial.begin(9600);
   Serial3.begin(9600);
@@ -46,6 +50,7 @@ void setup() {
   rtc.get(&sec, &min, &hour, &day, &month, &year);
   minEx = min;
   //rtc.set(0, 0, 10, 24, 12, 2014);
+  rtc.start();
 }
 
 void loop() {
@@ -59,6 +64,7 @@ void loop() {
   findScheduleT();
   afficheSchedule();
   rtcsync();
+
 
   bufferTrame = "";
   switchCase = 6;

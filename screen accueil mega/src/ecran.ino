@@ -3,11 +3,10 @@ void findScheduleT() {
         if(timeColour[i][0] == hour){
             if (timeColour[i][1] == min) {
               scheduleOK = i;
-              int LastscheduleOK = 0;
               timeS = 1;
               if(LastscheduleOK != scheduleOK){
                 actu = 1;
-                LastscheduleOK = LastscheduleOK;
+                LastscheduleOK = scheduleOK;
               }
             }
         }else{
@@ -19,12 +18,15 @@ void findScheduleT() {
         }
 
         }
-  if (TrameType == 0) {
+  if (TrameType == 1) {
     scheduleOK = 0;
   }
 }
 
 void afficheSchedule(){
+    if (info == "OFF") {
+        timeSet =0;
+    }
   if (actu == 1 || (bufferTrame != "" && timeSet == 0)) {
     Serial.print(actu);
     matrix.fillScreen(matrix.Color333(0,0,0));
@@ -35,16 +37,18 @@ void afficheSchedule(){
         matrix.fillScreen(matrix.Color333(0,0,0));
       break;
       case 1:
-        matrix.setTextColor(matrix.Color333(timeColour[scheduleOK][2],timeColour[scheduleOK][3],timeColour[scheduleOK][4]));
+        matrix.setTextColor(matrix.Color333(7,7,7));
         matrix.print("Accueil");
         matrix.setCursor(2,9);
+        matrix.setTextColor(matrix.Color333(timeColour[scheduleOK][2],timeColour[scheduleOK][3],timeColour[scheduleOK][4]));
         matrix.print("ouvert");
       break;
       case 2:
-        matrix.setTextColor(matrix.Color333(timeColour[scheduleOK][2],timeColour[scheduleOK][3],timeColour[scheduleOK][4]));
+        matrix.setTextColor(matrix.Color333(7,7,7));
         matrix.print("Accueil");
+        matrix.setTextColor(matrix.Color333(timeColour[scheduleOK][2],timeColour[scheduleOK][3],timeColour[scheduleOK][4]));
         matrix.setCursor(2,9);
-        matrix.print("Fermer");
+        matrix.print("Fermee");
     }
     actu = 0;
   }
