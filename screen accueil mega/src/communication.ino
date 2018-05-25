@@ -1,8 +1,8 @@
 void lectureTrame() {
     if (Serial3.available()) { // If a message is receive on the serial
+        matrix.drawPixel(63, 0, matrix.Color333(7, 7, 7));
         bufferTrame = Serial3.readString(); // Read it and affect it to bufferTrame String object
         Serial.println(bufferTrame); // When this is finished display it on the serial monitor
-        matrix.drawPixel(63, 0, matrix.Color333(7, 7, 7));
         matrix.drawPixel(63, 0, matrix.Color333(0,0,0));
 
     }
