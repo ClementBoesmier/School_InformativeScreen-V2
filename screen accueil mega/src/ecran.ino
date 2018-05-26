@@ -3,7 +3,7 @@ void findScheduleT() {
         if(timeColour[i][0] == hour){
             if (timeColour[i][1] == min) {
               scheduleOK = i;
-              timeS = 1;
+              timeSet = 1;
               if(LastscheduleOK != scheduleOK){
                 actu = 1;
                 LastscheduleOK = scheduleOK;

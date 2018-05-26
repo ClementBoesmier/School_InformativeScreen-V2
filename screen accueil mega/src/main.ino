@@ -32,7 +32,6 @@ int TrameType = 0;
 int action = 0;
 int Gset = 0;
 
-int timeS = 0;
 int actu = 0;
 int scheduleOK = 0;
 
